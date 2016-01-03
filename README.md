@@ -1,9 +1,9 @@
 # dwarf
-A naive implementation of forward and reverse DNS lookup cache.
+A naive implementation of forward and reverse DNS lookup cache server.
 
 Possible use-cases:
 
-* Look up cache in an organisation.
+* DNS look up cache used in an organisation for maintaining private ip to machine name mapping and vice a versa.
 
 Future work:
 
