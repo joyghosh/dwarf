@@ -2,11 +2,11 @@ package com.dwarf.model;
 
 import com.dwarf.util.DNSCacheConfig;
 
-public class TrieReverseNode extends TrieNode {
+public class ReverseTrieNode extends TrieNode {
 
 	private String url;
 	
-	protected TrieReverseNode() {
+	protected ReverseTrieNode() {
 		super(DNSCacheConfig.MAX_URL_CHARACTERS);
 	}
 

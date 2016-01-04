@@ -2,11 +2,11 @@ package com.dwarf.model;
 
 import com.dwarf.util.DNSCacheConfig;
 
-public class TrieForwardNode extends TrieNode {
+public class ForwardTrieNode extends TrieNode {
 
 	private String ipAddr;
 	
-	protected TrieForwardNode() {
+	protected ForwardTrieNode() {
 		super(DNSCacheConfig.MAX_IP_CHARACTERS);
 	}
 
