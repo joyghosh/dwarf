@@ -6,7 +6,7 @@ public class ForwardTrieNode extends TrieNode {
 
 	private String ipAddr;
 	
-	protected ForwardTrieNode() {
+	public ForwardTrieNode() {
 		super(DNSCacheConfig.MAX_IP_CHARACTERS);
 	}
 

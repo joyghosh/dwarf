@@ -6,7 +6,7 @@ public class ReverseTrieNode extends TrieNode {
 
 	private String url;
 	
-	protected ReverseTrieNode() {
+	public ReverseTrieNode() {
 		super(DNSCacheConfig.MAX_URL_CHARACTERS);
 	}
 
