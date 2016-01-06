@@ -7,13 +7,43 @@
   <version>1.0-SNAPSHOT</version>
   <name>dwarf Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<junit.version>4.11</junit.version>
+  	<testng.version>6.9.4</testng.version>
+  	<logback.version>1.0.13</logback.version>
+	<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+  </properties>
+  
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+  		<!-- Junit -->
+	    <dependency>
+		      <groupId>junit</groupId>
+		      <artifactId>junit</artifactId>
+		      <version>${junit.version}</version>
+		      <scope>test</scope>
+	    </dependency>
+    
+    	<!-- TestNG -->
+		<dependency>
+			 <groupId>org.testng</groupId>
+		  	 <artifactId>testng</artifactId>
+		     <version>${testng.version}</version>
+		     <scope>test</scope>
+		</dependency>
+		
+		<!-- Logging -->
+	    <dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${jcl-over-slf4j.version}</version>
+		</dependency>
+		
+		<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+		</dependency>
   </dependencies>
   <build>
     <finalName>dwarf</finalName>
