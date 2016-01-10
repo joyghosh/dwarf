@@ -4,11 +4,9 @@ package com.dwarf.model;
 public abstract class TrieNode{
 	
 	protected boolean isLeaf;
-	protected TrieNode[] children;
 	
-	protected TrieNode(int size){
+	protected TrieNode(){
 		this.isLeaf = false;
-		this.children = new TrieNode[size];
 	}
 	
 	public boolean isLeaf() {
@@ -17,13 +15,5 @@ public abstract class TrieNode{
 	
 	public void setLeaf(boolean isLeaf) {
 		this.isLeaf = isLeaf;
-	}
-	
-	public TrieNode[] getChildren() {
-		return children;
-	}
-	
-	public void setChildren(TrieNode[] children) {
-		this.children = children;
 	}
 }

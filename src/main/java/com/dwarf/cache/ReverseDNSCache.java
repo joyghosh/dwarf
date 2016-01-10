@@ -15,13 +15,13 @@ public class ReverseDNSCache implements IDNSCache<ReverseTrieNode>, Serializable
 		ReverseTrieNode pointer = root;
 		
 		for(int level = 0; level < ipAddr.length(); level++){
-			int index = DNSCacheUtil.getIPIndex(ipAddr.charAt(level));
 			
-			if(pointer.getChildren()[index] == null){
-				pointer.getChildren()[index] = new ReverseTrieNode();
+			int index = DNSCacheUtil.getIPIndex(ipAddr.charAt(level));
+			if(!pointer.isValidChild(index)){
+				pointer.setChild(index, new ReverseTrieNode());
 			}
 			
-			pointer = (ReverseTrieNode) pointer.getChildren()[index];
+			pointer = pointer.getChild(index);
 		}
 		
 		//Last node processing for mapping.
@@ -40,11 +40,11 @@ public class ReverseDNSCache implements IDNSCache<ReverseTrieNode>, Serializable
 			int index = DNSCacheUtil.getIPIndex(ipAddr.charAt(level));
 			
 			//no such mapping found. return null.
-			if(pointer.getChildren()[index] == null)
+			if(!pointer.isValidChild(index))
 				return null;
 			
 			//move to next child node.
-			pointer = (ReverseTrieNode) pointer.getChildren()[index];
+			pointer = pointer.getChild(index);
 		}
 		
 		//if the last node is reached and is valid node then return the url.

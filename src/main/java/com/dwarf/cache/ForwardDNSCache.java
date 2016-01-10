@@ -16,10 +16,10 @@ public class ForwardDNSCache implements IDNSCache<ForwardTrieNode>, Serializable
 		for(int level=0;level<url.length();level++){
 			
 			int index = DNSCacheUtil.getURLIndex(url.charAt(level));
-			if(pointer.getChildren()[index] == null){
-				pointer.getChildren()[index] = new ForwardTrieNode();
+			if(!pointer.isValidChild(index)){
+				pointer.setChild(index, new ForwardTrieNode());
 			}
-			pointer = (ForwardTrieNode) pointer.getChildren()[index];
+			pointer = pointer.getChild(index);
 		}
 	
 		pointer.setLeaf(true);
@@ -35,10 +35,10 @@ public class ForwardDNSCache implements IDNSCache<ForwardTrieNode>, Serializable
 			
 			int index = DNSCacheUtil.getURLIndex(url.charAt(level));
 			
-			if(pointer.getChildren()[index] == null)
+			if(!pointer.isValidChild(index))
 				return null;
 			
-			pointer = (ForwardTrieNode) pointer.getChildren()[index];
+			pointer = pointer.getChild(index);
 		}
 		
 		if(pointer!=null && pointer.isLeaf())
