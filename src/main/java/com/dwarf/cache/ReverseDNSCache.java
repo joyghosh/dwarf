@@ -5,10 +5,20 @@ import java.io.Serializable;
 import com.dwarf.model.ReverseTrieNode;
 import com.dwarf.util.DNSCacheUtil;
 
+/**
+ * Reverse DNS look-up cache implementation.
+ * @author Joy Ghosh.
+ * @version 1.0
+ */
 public class ReverseDNSCache implements IDNSCache<ReverseTrieNode>, Serializable {
 	
 	private static final long serialVersionUID = 221602003068049447L;
-
+	
+	/**
+	 * Insert IP address to URL mapping.
+	 * @param ipAddr IP address as key.
+	 * @param url URL as value.
+	 */
 	@Override
 	public void insert(ReverseTrieNode root, String ipAddr, String url) {
 		
@@ -28,7 +38,13 @@ public class ReverseDNSCache implements IDNSCache<ReverseTrieNode>, Serializable
 		pointer.setLeaf(true);
 		pointer.setUrl(url);
 	}
-
+	
+	/**
+	 * Look-up for a valid IP to URL mapping.
+	 * @param root Root node of the cache.
+	 * @param ipAddr IP address which needs to be looked up.
+	 * @return valid URL if mapping exists, else null.
+	 */
 	@Override
 	public String searchCache(ReverseTrieNode root, String ipAddr) {
 		

@@ -1,6 +1,10 @@
 package com.dwarf.util;
 
-//Common DNS configuration params.
+/**
+ * DNS configuration values for both forward and reverse caches.
+ * @author Joy Ghosh.
+ * @version 1.0
+ */
 public class DNSCacheConfig {
 	
 	public static final int MAX_IP_CHARACTERS = 11;
